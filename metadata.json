@@ -1,0 +1,6 @@
+{
+  "name": "MYK Platform - Mohammad Yasin Karami",
+  "description": "The official platform and digital home of Mohammad Yasin Karami — AI Engineer, Python Developer, and Entrepreneur.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

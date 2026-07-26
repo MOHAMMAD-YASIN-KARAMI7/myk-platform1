@@ -1,0 +1,17 @@
+{
+  "contact_messages": [
+    {
+      "id": "msg_1785081538408_2evo9q",
+      "name": "Mohammad Yasin Karami",
+      "email": "yasin@mykplatform.com",
+      "subject": "MYK Platform Test",
+      "message": "Testing the contact message database engine.",
+      "status": "UNREAD",
+      "ipAddress": "127.0.0.1",
+      "createdAt": "2026-07-26T15:58:58.408Z",
+      "updatedAt": "2026-07-26T15:58:58.408Z"
+    }
+  ],
+  "settings": {},
+  "users": []
+}
