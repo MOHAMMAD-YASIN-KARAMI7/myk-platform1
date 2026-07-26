@@ -1,14 +1,15 @@
 import React from 'react';
 import { useI18n } from '../lib/i18nContext';
 import { PageRoute } from '../types';
-import { ShieldCheck, Cpu, Database, Github, Instagram, Mail, Send } from 'lucide-react';
+import { BrandLogo } from './BrandLogo';
+import { ShieldCheck, Cpu, Globe, Github, Instagram, Mail, Send } from 'lucide-react';
 
 interface FooterProps {
   onNavigate: (page: PageRoute) => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
 
   return (
     <footer className="mt-20 border-t border-slate-800/80 bg-slate-950/80 text-slate-400 py-12 px-4 sm:px-6 lg:px-8">
@@ -16,21 +17,15 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         
         {/* Brand Info */}
         <div className="md:col-span-2 space-y-4">
-          <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-500 to-purple-600 p-[1px]">
-              <div className="w-full h-full bg-slate-950 rounded-[11px] flex items-center justify-center font-bold text-white text-xs">
-                MYK
-              </div>
-            </div>
-            <div>
-              <span className="font-extrabold text-lg text-white">MYK Platform</span>
-              <p className="text-xs text-indigo-400 font-medium">{t.hero.slogan}</p>
-            </div>
-          </div>
+          <BrandLogo size="md" showSubtitle={true} />
+          
           <p className="text-sm text-slate-400 max-w-md leading-relaxed">
-            The digital home of Mohammad Yasin Karami. Engineered with Clean Architecture, SQLite/Prisma persistent database, and RTL/LTR internationalization.
+            {locale === 'fa' 
+              ? 'پلتفرم رسمی محمد یاسین کرمی. توسعه یافته با معماری تمیز، رابط کاربری مدرن و پشتیبانی دو زبانه کامل.' 
+              : 'The official digital platform of Mohammad Yasin Karami. Engineered with Clean Architecture and universal bilingual support.'}
           </p>
-          <div className="flex items-center gap-3 pt-2">
+
+          <div className="flex flex-wrap items-center gap-3 pt-2">
             <a
               href="https://github.com/mohammad-yasin-karami"
               target="_blank"
@@ -75,7 +70,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         {/* Navigation Quick Links */}
         <div className="space-y-3">
           <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-200">
-            Navigation
+            {locale === 'fa' ? 'بخش‌های سایت' : 'Navigation'}
           </h4>
           <ul className="space-y-2 text-sm">
             <li>
@@ -108,20 +103,20 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         {/* Architecture & Specs Badge */}
         <div className="space-y-3">
           <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-200">
-            System Status
+            {locale === 'fa' ? 'وضعیت پلتفرم' : 'System Status'}
           </h4>
           <div className="space-y-2 text-xs">
             <div className="flex items-center gap-2 text-emerald-400 bg-emerald-500/10 p-2.5 rounded-xl border border-emerald-500/20">
               <ShieldCheck className="w-4 h-4 shrink-0" />
               <span>Version 1.0 Production Ready</span>
             </div>
-            <div className="flex items-center gap-2 text-indigo-300 bg-slate-900 p-2.5 rounded-xl border border-slate-800">
-              <Database className="w-4 h-4 shrink-0 text-indigo-400" />
-              <span>SQLite Abstracted DB Ready</span>
+            <div className="flex items-center gap-2 text-sky-300 bg-slate-900 p-2.5 rounded-xl border border-slate-800">
+              <Globe className="w-4 h-4 shrink-0 text-sky-400" />
+              <span>Active Social Network</span>
             </div>
             <div className="flex items-center gap-2 text-purple-300 bg-slate-900 p-2.5 rounded-xl border border-slate-800">
               <Cpu className="w-4 h-4 shrink-0 text-purple-400" />
-              <span>Multi-Agent AI Ready</span>
+              <span>AI Agentic Core</span>
             </div>
           </div>
         </div>

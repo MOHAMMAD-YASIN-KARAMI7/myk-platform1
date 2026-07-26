@@ -8,12 +8,10 @@ import { HomePage } from './components/HomePage';
 import { AboutPage } from './components/AboutPage';
 import { ContactPage } from './components/ContactPage';
 import { ProjectsModal } from './components/ProjectsModal';
-import { AdminMessagesDrawer } from './components/AdminMessagesDrawer';
 
 export function MainApp() {
   const [currentPage, setCurrentPage] = useState<PageRoute>('home');
   const [isProjectsOpen, setIsProjectsOpen] = useState(false);
-  const [isAdminOpen, setIsAdminOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans transition-colors duration-300 selection:bg-indigo-500 selection:text-white">
@@ -25,7 +23,6 @@ export function MainApp() {
           setCurrentPage(page);
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }}
-        onOpenAdmin={() => setIsAdminOpen(true)}
       />
 
       {/* Main Page View Container */}
@@ -50,9 +47,7 @@ export function MainApp() {
         )}
 
         {currentPage === 'contact' && (
-          <ContactPage
-            onOpenAdmin={() => setIsAdminOpen(true)}
-          />
+          <ContactPage />
         )}
       </main>
 
@@ -72,12 +67,6 @@ export function MainApp() {
           setCurrentPage('contact');
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }}
-      />
-
-      {/* Admin SQLite Messages Drawer */}
-      <AdminMessagesDrawer
-        isOpen={isAdminOpen}
-        onClose={() => setIsAdminOpen(false)}
       />
 
     </div>
